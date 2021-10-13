@@ -39,12 +39,12 @@ def redraw_window(win, game, p):
     win.fill((128, 128, 128))
 
     if not(game.connected()):
-        font = pygame.font.SysFont("comicsans", 80)
+        font = pygame.font.SysFont("comicsans", 60)
 
-        text = font.render("Waiting for Player...", 1, (255, 0, 0), True)
+        text = font.render("Waiting for Player...", 1, (255, 0, 0))
         win.blit(text, (width/2 - text.get_width()/2, height/2 - text.get_height()/2))
     else:
-        font = pygame.font.SysFont("comicsans", 60)
+        font = pygame.font.SysFont("comicsans", 40)
 
         text = font.render("Your Move", 1, (0, 255, 255))
         win.blit(text, (80, 200))
@@ -117,7 +117,7 @@ def main():
                 print("Could not get game")
                 break
 
-            font = pygame.font.SysFont("comicsans", 90)
+            font = pygame.font.SysFont("comicsans", 80)
             if (game.winner() == 1 and player == 1) or (game.winner() == 0 and player == 0):
                 text = font.render("You Won!", 1, (255, 0, 0))
             elif game.winner() == -1:
@@ -156,7 +156,7 @@ def menu_screen():
         win.fill((128, 128, 128))
         font = pygame.font.SysFont("comicsans", 60)
         text = font.render("Click to Play!", 1, (255, 0, 0))
-        win.blit(text, (100, 200))
+        win.blit(text, (width/2 - text.get_width()/2, height/2 - text.get_height()/2))
         pygame.display.update()
 
         for event in pygame.event.get():
