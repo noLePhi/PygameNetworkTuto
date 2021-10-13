@@ -17,7 +17,8 @@ except socket.error as e:
 s.listen(2)
 print("Waiting for a connection, Server Started!")
 
-players = [Player(0, 0, 50, 50, (255, 0, 0)), Player(100, 100, 50, 50, (0, 0, 255))]
+players = [Player(0, 0, 50, 50, (255, 0, 0)),
+           Player(100, 100, 50, 50, (0, 0, 255))]
 
 # threaded to let many connections
 # while game (other functions) still running
@@ -26,8 +27,8 @@ def threaded_client(conn, player):
     reply = ""
     while True:
         try:  # to receive some data
-            data = pickle.loads(conn.recv(2048*100))  # larger the size = larger time to recv data
-            player[player] = data
+            data = pickle.loads(conn.recv(2048))  # larger the size = larger time to recv data
+            players[player] = data
 
             if not data:
                 print("Disconnected")

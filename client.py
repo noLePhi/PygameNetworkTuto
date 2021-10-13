@@ -29,6 +29,7 @@ def main():
             if event.type == pygame.QUIT:
                 run = False
                 pygame.quit()
+                
         p.move()
         redraw_window(win, p, p2)
 
